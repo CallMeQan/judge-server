@@ -55,7 +55,31 @@ def _connect(self):
 
 1. First attempting to create a connection to `0.0.0.0:9998` with a timeout of 5 seconds
 2. After create success, set timeout 300 seconds if that connection not respond.
-3. Start `self.handshake`
+3. Call `self.handshake`
 
-## 3. Into handshake stuff
+## 3. Into `handshake` and `_send_packet`
 
+1. At beginning of handshake function, the judge create a request dict-type:
+
+    ```python
+    {
+        'name': 'handshake', 
+        'problems': ..., 
+        'executors': ..., 
+        'id': JUDGE_ID, 
+        'key': AUTH_KEY
+    }
+    ```
+
+    - Then it call function `_send_packet` with that request.
+2. Into the `_send_packet`, it zip the dict. Then use `self.conn` to deliver it to `0.0.0.0:9998` that judge created in section 2.
+3. After sent, judge wait for respond of the handshake. The server that host in `0.0.0.0:9998` must return respond:
+
+    ```python
+    res = {
+        'name':'handshake-success',
+        ...
+    }
+    ```
+
+## 4. Success let judge server online
