@@ -2,6 +2,8 @@
 
 ## Judge server expectation
 
+In `judge.py`, line 58:
+
 ```python
 Submission = NamedTuple(
     'Submission',
@@ -19,14 +21,14 @@ Submission = NamedTuple(
 
 req = {
     "name": "submission-request",
-    "submission-id": "1", # Server self-manage id
+    "submission-id": "1", # int, Server self-manage id
     
-    "problem-id": "aplusb", # Must match id in problem root defined in judge env
-    "language": "cpp", # All availible in ./dmoj/executors
-    "source": "SOURCE_CODE", # The fucking source code
+    "problem-id": "aplusb", # str, Must match id in problem root defined in judge env
+    "language": "cpp", # str, All availible in ./dmoj/executors
+    "source": "SOURCE_CODE", # str, The fucking source code
     "time-limit": 1.0, # float, in seconds
     "memory-limit": 256, # int, in KB
-    "short-circuit": "?", # Lmao what is this
-    "meta": "?",
+    "short-circuit": False, # bool, Lmao what is this
+    "meta": {}, # Lmao?
 }
 ```
