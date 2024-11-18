@@ -92,7 +92,7 @@ class Problem:
     ) -> List[dict]:
         key_type = Union[str, int, None]
 
-        def try_match_int(match: Match[str], group: str) -> key_type:
+        def try_match_int(match: Match[str], group: str) -> key_type: # type: ignore
             try:
                 val = match.group(group)
             except IndexError:
@@ -103,7 +103,7 @@ class Problem:
             except (ValueError, TypeError):
                 return val
 
-        def parse_position(pattern: Pattern[str], filename: str) -> Optional[Tuple[key_type, key_type]]:
+        def parse_position(pattern: Pattern[str], filename: str) -> Optional[Tuple[key_type, key_type]]: # type: ignore
             match = pattern.match(filename)
             if not match:
                 return None
@@ -117,8 +117,8 @@ class Problem:
             output_file: Optional[str] = None
 
         # Match all cases with the same (batch, position) mapping.
-        groups: DefaultDict[key_type, DefaultDict[key_type, _TestCase]] = defaultdict(lambda: defaultdict(_TestCase))
-        batch_ids: Set[key_type] = set()
+        groups: DefaultDict[key_type, DefaultDict[key_type, _TestCase]] = defaultdict(lambda: defaultdict(_TestCase)) # type: ignore
+        batch_ids: Set[key_type] = set() # type: ignore
 
         for filetype, pattern in (('input_file', input_case_pattern), ('output_file', output_case_pattern)):
             for testcase_file in filenames:
