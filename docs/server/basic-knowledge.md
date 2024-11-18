@@ -1,6 +1,6 @@
 # How does judge SERVER work?
 
-Before we start, lets assume that we use default config, which is `0.0.0.0:9998`
+Before we start, lets assume that we use default config, which is `0.0.0.0:9998` [^1].
 
 ## 1. From file `judge.py` (The begin)
 
@@ -83,3 +83,5 @@ def _connect(self):
     ```
 
 ## 4. Success let judge server online
+
+[^1]: In Linux a program may specify 0.0.0.0 as the remote address to connect to the current host (AKA localhost).
