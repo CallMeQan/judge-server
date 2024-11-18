@@ -1,7 +1,7 @@
 # README
 
-[How judge start?](./flow_of_setup_process.md)
+[How judge start?](./setup_process.md)
 
-or
+[How to connect judge server work?](./server/how_to_start_connection_to_server.md)
 
-[How judge server work?](./server/basic-knowledge.md)
+[How to send Submission to judge server?](./server/how_server_read_submission.md)

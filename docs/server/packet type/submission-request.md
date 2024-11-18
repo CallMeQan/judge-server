@@ -1,10 +1,11 @@
 # Submission
 
-## Judge server expectation
+##
 
-In `judge.py`, line 58:
+### Judge server define Submission object:
 
 ```python
+# In `judge.py`, line 58:
 Submission = NamedTuple(
     'Submission',
     [
@@ -18,6 +19,12 @@ Submission = NamedTuple(
         ('meta', Dict),
     ],
 )
+```
+
+### Judge server expect request contains:
+
+```python
+# In `packet.py`, line 259
 
 req = {
     "name": "submission-request",
